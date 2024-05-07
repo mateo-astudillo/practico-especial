@@ -1,0 +1,9 @@
+services:
+  app:
+    container_name: app
+    image: php:apache-bullseye
+    ports:
+      - 8080:80
+    volumes:
+      - ./app/web:/var/www/html
+      - ./vhost.conf:/etc/apache2/sites-enabled/000-default.conf
