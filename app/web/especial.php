@@ -23,7 +23,7 @@
 <h1>Práctico Especial</h1>
 <h2>Mateo Astudillo</h2>
 
-<?php include './funciones.php'; ?>
+<?php include 'funciones.php'; ?>
 
 <!-- size -->
 <div>Parámetros por defecto:
@@ -54,8 +54,8 @@
     $only_upper = false;
     if (array_key_exists("only_upper", $_GET))
         $only_upper = json_decode($_GET['only_upper']);
-    $ar_letras = get_letters_array($array_size, $only_upper);
-    echo implode(' ', $ar_letras);
+    set_letters_array($array_size, $only_upper);
+    echo implode(' ', $letters);
     ?>
 </div>
 <br>
@@ -71,7 +71,7 @@
     ?>
     <br>
     <?php
-    if (letter_in_array($ar_letras, $letter)) {
+    if (letter_in_array($letter)) {
         echo "Sí está";
     } else {
         echo "No está";
@@ -88,7 +88,7 @@
     ?>
     <br>
     <?php
-        echo number_of_letter($ar_letras, $letter);
+        echo number_of_letter($letter);
     ?>
 </div>
 <br>
@@ -98,7 +98,7 @@
     Arreglo asociativo
     <br>
     <?php
-    print_r(associative_array($ar_letras));
+    print_r(associative_array($letters));
     ?>
 </div>
 <br>
@@ -109,8 +109,8 @@
     <br>
     <div class="row">
     <?php
-    associative_array_with_percentage($ar_letras);
-    array_map('pretty_print', array_keys($ar_letras), $ar_letras, array_keys(array_keys($ar_letras)));
+    associative_array_with_percentage($letters);
+    array_map('pretty_print', array_keys($letters), $letters, array_keys(array_keys($letters)));
     ?>
     </div>
 </div>
